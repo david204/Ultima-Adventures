@@ -4846,12 +4846,12 @@ namespace Server
 		private static List<Mobile> m_Hears = new List<Mobile>();
 		private static List<IEntity> m_OnSpeech = new List<IEntity>();
 
-		public virtual void DoSpeech( string text, int[] keywords, MessageType type, int hue )
-		{
-			if( m_Deleted || CommandSystem.Handle( this, text, type ) )
-				return;
+                public virtual void DoSpeech( string serverText, int[] keywords, MessageType type, int hue, string displayText = null )
+                {
+                        if( m_Deleted || CommandSystem.Handle( this, serverText, type ) )
+                                return;
 
-			int range = 15;
+                        int range = 15;
 
 			switch( type )
 			{
@@ -4874,7 +4874,7 @@ namespace Server
 					break;
 			}
 
-			SpeechEventArgs regArgs = new SpeechEventArgs( this, text, type, hue, keywords );
+                        SpeechEventArgs regArgs = new SpeechEventArgs( this, serverText, type, hue, keywords );
 
 			EventSink.InvokeSpeech( regArgs );
 			this.Region.OnSpeech( regArgs );
@@ -4883,10 +4883,13 @@ namespace Server
 			if( regArgs.Blocked )
 				return;
 
-			text = regArgs.Speech;
+                        serverText = regArgs.Speech;
 
-			if( string.IsNullOrEmpty( text ) )
-				return;
+                        if( string.IsNullOrEmpty( serverText ) )
+                                return;
+
+                        if( displayText == null )
+                                displayText = serverText;
 
 
 			List<Mobile> hears = m_Hears;
@@ -4932,9 +4935,9 @@ namespace Server
 
 				eable.Free();
 
-				object mutateContext = null;
-				string mutatedText = text;
-				SpeechEventArgs mutatedArgs = null;
+                                object mutateContext = null;
+                                string mutatedText = serverText;
+                                SpeechEventArgs mutatedArgs = null;
 
 				if( MutateSpeech( hears, ref mutatedText, ref mutateContext ) )
 					mutatedArgs = new SpeechEventArgs( this, mutatedText, type, hue, new int[0] );
@@ -4951,29 +4954,29 @@ namespace Server
 				for( int i = 0; i < hears.Count; ++i ) {
 					Mobile heard = hears[i];
 
-					if( mutatedArgs == null || !CheckHearsMutatedSpeech( heard, mutateContext ) ) {
-						heard.OnSpeech( regArgs );
+                                        if( mutatedArgs == null || !CheckHearsMutatedSpeech( heard, mutateContext ) ) {
+                                                heard.OnSpeech( regArgs );
 
-						NetState ns = heard.NetState;
+                                                NetState ns = heard.NetState;
 
-						if( ns != null ) {
-							if( regp == null )
-								regp = Packet.Acquire( new UnicodeMessage( m_Serial, Body, type, hue, 3, m_Language, Name, text ) );
+                                                if( ns != null ) {
+                                                        if( regp == null )
+                                                                regp = Packet.Acquire( new UnicodeMessage( m_Serial, Body, type, hue, 3, m_Language, Name, displayText ) );
 
-							ns.Send( regp );
-						}
-					} else {
-						heard.OnSpeech( mutatedArgs );
+                                                        ns.Send( regp );
+                                                }
+                                        } else {
+                                                heard.OnSpeech( mutatedArgs );
 
-						NetState ns = heard.NetState;
+                                                NetState ns = heard.NetState;
 
-						if( ns != null ) {
-							if( mutp == null )
-								mutp = Packet.Acquire( new UnicodeMessage( m_Serial, Body, type, hue, 3, m_Language, Name, mutatedText ) );
+                                                if( ns != null ) {
+                                                        if( mutp == null )
+                                                                mutp = Packet.Acquire( new UnicodeMessage( m_Serial, Body, type, hue, 3, m_Language, Name, mutatedText ) );
 
-							ns.Send( mutp );
-						}
-					}
+                                                        ns.Send( mutp );
+                                                }
+                                        }
 				}
 
 				Packet.Release( regp );

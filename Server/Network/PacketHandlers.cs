@@ -34,6 +34,7 @@ using Server.Prompts;
 using Server.HuePickers;
 using Server.ContextMenus;
 using Server.Diagnostics;
+using Server.Localization;
 using CV = Server.ClientVersion;
 
 namespace Server.Network
@@ -1384,16 +1385,19 @@ namespace Server.Network
 			MessageType type = (MessageType)pvSrc.ReadByte();
 			int hue = pvSrc.ReadInt16();
 			pvSrc.ReadInt16(); // font
-			string text = pvSrc.ReadStringSafe().Trim();
+                        string text = pvSrc.ReadStringSafe().Trim();
 
-			if ( text.Length <= 0 || text.Length > 128 )
-				return;
+                        if ( text.Length <= 0 || text.Length > 128 )
+                                return;
 
-			if ( !Enum.IsDefined( typeof( MessageType ), type ) )
-				type = MessageType.Regular;
+                        if ( !Enum.IsDefined( typeof( MessageType ), type ) )
+                                type = MessageType.Regular;
 
-			from.DoSpeech( text, m_EmptyInts, type, Utility.ClipDyedHue( hue ) );
-		}
+                        string displayText = text;
+                        string serverText = TranslationService.TranslateToServerLanguage( displayText );
+
+                        from.DoSpeech( serverText, m_EmptyInts, type, Utility.ClipDyedHue( hue ), displayText );
+                }
 
 		private static KeywordList m_KeywordList = new KeywordList();
 
@@ -1464,9 +1468,13 @@ namespace Server.Network
 			if ( !Enum.IsDefined( typeof( MessageType ), type ) )
 				type = MessageType.Regular;
 
-			from.Language = lang;
-			from.DoSpeech( text, keywords, type, Utility.ClipDyedHue( hue ) );
-		}
+                        from.Language = lang;
+
+                        string displayText = text;
+                        string serverText = TranslationService.TranslateToServerLanguage( displayText );
+
+                        from.DoSpeech( serverText, keywords, type, Utility.ClipDyedHue( hue ), displayText );
+                }
 
 		public static void UseReq( NetState state, PacketReader pvSrc )
 		{
