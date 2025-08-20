@@ -3465,10 +3465,10 @@ namespace Server
 					{
 						if ( p == null )
 						{
-							if ( ascii )
-								p = new AsciiMessage( m_Serial, m_ItemID, type, hue, 3, this.Name, text );
-							else
-								p = new UnicodeMessage( m_Serial, m_ItemID, type, hue, 3, "ENU", this.Name, text );
+                                                        if ( ascii )
+                                                                p = new AsciiMessage( m_Serial, m_ItemID, type, hue, 3, this.Name, TranslationService.Translate( text ) );
+                                                        else
+                                                                p = new UnicodeMessage( m_Serial, m_ItemID, type, hue, 3, "ENU", this.Name, TranslationService.Translate( text ) );
 
 							p.Acquire();
 						}

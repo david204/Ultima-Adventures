@@ -19,6 +19,7 @@
  ***************************************************************************/
 
 using System;
+using Server;
 using Server.Network;
 
 namespace Server.Gumps
@@ -85,10 +86,10 @@ namespace Server.Gumps
 			}
 		}
 
-		public override string Compile()
-		{
-			return String.Format( "{{ text {0} {1} {2} {3} }}", m_X, m_Y, m_Hue, Parent.Intern( m_Text ) );
-		}
+                public override string Compile()
+                {
+                        return String.Format( "{{ text {0} {1} {2} {3} }}", m_X, m_Y, m_Hue, Parent.Intern( TranslationService.Translate( m_Text ) ) );
+                }
 
 		private static byte[] m_LayoutName = Gump.StringToBuffer( "text" );
 
@@ -97,8 +98,8 @@ namespace Server.Gumps
 			disp.AppendLayout( m_LayoutName );
 			disp.AppendLayout( m_X );
 			disp.AppendLayout( m_Y );
-			disp.AppendLayout( m_Hue );
-			disp.AppendLayout( Parent.Intern( m_Text ) );
-		}
-	}
+                        disp.AppendLayout( m_Hue );
+                        disp.AppendLayout( Parent.Intern( TranslationService.Translate( m_Text ) ) );
+                }
+        }
 }

@@ -19,6 +19,7 @@
  ***************************************************************************/
 
 using System;
+using Server;
 using Server.Network;
 
 namespace Server.Gumps
@@ -112,10 +113,10 @@ namespace Server.Gumps
 			m_Text = text;
 		}
 
-		public override string Compile()
-		{
-			return String.Format( "{{ croppedtext {0} {1} {2} {3} {4} {5} }}", m_X, m_Y, m_Width, m_Height, m_Hue, Parent.Intern( m_Text ) );
-		}
+                public override string Compile()
+                {
+                        return String.Format( "{{ croppedtext {0} {1} {2} {3} {4} {5} }}", m_X, m_Y, m_Width, m_Height, m_Hue, Parent.Intern( TranslationService.Translate( m_Text ) ) );
+                }
 
 		private static byte[] m_LayoutName = Gump.StringToBuffer( "croppedtext" );
 
@@ -126,8 +127,8 @@ namespace Server.Gumps
 			disp.AppendLayout( m_Y );
 			disp.AppendLayout( m_Width );
 			disp.AppendLayout( m_Height );
-			disp.AppendLayout( m_Hue );
-			disp.AppendLayout( Parent.Intern( m_Text ) );
-		}
-	}
+                        disp.AppendLayout( m_Hue );
+                        disp.AppendLayout( Parent.Intern( TranslationService.Translate( m_Text ) ) );
+                }
+        }
 }

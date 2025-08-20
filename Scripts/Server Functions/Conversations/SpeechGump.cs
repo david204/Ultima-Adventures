@@ -37,13 +37,13 @@ namespace Server.Gumps
 			AddImage(94, 535, 130);
 			AddImage(498, 2, 129);
 			AddImage(466, 20, 132);
-			AddHtml( 175, 47, 544, 26, @"<BODY><BASEFONT Color=#FBFBFB><BIG>" + sTitle + "</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                        AddHtml( 175, 47, 544, 26, @"<BODY><BASEFONT Color=#FBFBFB><BIG>" + TranslationService.Translate( sTitle ) + "</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 			AddImage(498, 298, 129);
 			AddImage(388, 364, 136);
 			AddImage(758, 17, 143);
 			AddImage(81, 518, 141);
 			AddImage(6, 345, 148);
-			AddHtml( 175, 89, 545, 329, @"<BODY><BASEFONT Color=#FCFF00><BIG>" + sText + "</BIG></BASEFONT></BODY>", (bool)false, (bool)true);
+                        AddHtml( 175, 89, 545, 329, @"<BODY><BASEFONT Color=#FCFF00><BIG>" + TranslationService.Translate( sText ) + "</BIG></BASEFONT></BODY>", (bool)false, (bool)true);
 			AddImage(353, 524, 156);
 			AddImage(346, 527, 156);
 			AddImage(349, 529, 159);

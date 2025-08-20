@@ -10742,14 +10742,14 @@ namespace Server
 		{
 			if( m_Map != null )
 			{
-				Packet p = null;
+                                Packet p = null;
 
-							if( ascii )
-								p = new AsciiMessage( m_Serial, Body, type, hue, 3, Name, text );
-							else
-								p = new UnicodeMessage( m_Serial, Body, type, hue, 3, m_Language, Name, text );
+                                                        if( ascii )
+                                                                p = new AsciiMessage( m_Serial, Body, type, hue, 3, Name, TranslationService.Translate( text ) );
+                                                        else
+                                                                p = new UnicodeMessage( m_Serial, Body, type, hue, 3, m_Language, Name, TranslationService.Translate( text ) );
 
-							p.Acquire();
+                                                        p.Acquire();
 
 				IPooledEnumerable<NetState> eable = m_Map.GetClientsInRange(m_Location);
 
@@ -10825,11 +10825,11 @@ namespace Server
 			if( state == null )
 				return;
 
-			if( ascii )
-				state.Send( new AsciiMessage( m_Serial, Body, type, hue, 3, Name, text ) );
-			else
-				state.Send( new UnicodeMessage( m_Serial, Body, type, hue, 3, m_Language, Name, text ) );
-		}
+                        if( ascii )
+                                state.Send( new AsciiMessage( m_Serial, Body, type, hue, 3, Name, TranslationService.Translate( text ) ) );
+                        else
+                                state.Send( new UnicodeMessage( m_Serial, Body, type, hue, 3, m_Language, Name, TranslationService.Translate( text ) ) );
+                }
 
 		public void PrivateOverheadMessage( MessageType type, int hue, int number, NetState state )
 		{
@@ -10846,16 +10846,16 @@ namespace Server
 
 		public void LocalOverheadMessage( MessageType type, int hue, bool ascii, string text )
 		{
-			NetState ns = m_NetState;
+                        NetState ns = m_NetState;
 
-			if( ns != null )
-			{
-				if( ascii )
-					ns.Send( new AsciiMessage( m_Serial, Body, type, hue, 3, Name, text ) );
-				else
-					ns.Send( new UnicodeMessage( m_Serial, Body, type, hue, 3, m_Language, Name, text ) );
-			}
-		}
+                        if( ns != null )
+                        {
+                                if( ascii )
+                                        ns.Send( new AsciiMessage( m_Serial, Body, type, hue, 3, Name, TranslationService.Translate( text ) ) );
+                                else
+                                        ns.Send( new UnicodeMessage( m_Serial, Body, type, hue, 3, m_Language, Name, TranslationService.Translate( text ) ) );
+                        }
+                }
 
 		public void LocalOverheadMessage( MessageType type, int hue, int number )
 		{
@@ -10939,23 +10939,23 @@ namespace Server
 			SendLocalizedMessage( number, args, 0x3B2 );
 		}
 
-		public void SendLocalizedMessage( int number, string args, int hue )
-		{
-			if( hue == 0x3B2 && (args == null || args.Length == 0) )
-			{
-				NetState ns = m_NetState;
+                public void SendLocalizedMessage( int number, string args, int hue )
+                {
+                        if( hue == 0x3B2 && (args == null || args.Length == 0) )
+                        {
+                                NetState ns = m_NetState;
 
-				if( ns != null )
-					ns.Send( MessageLocalized.InstantiateGeneric( number ) );
-			}
-			else
-			{
-				NetState ns = m_NetState;
+                                if( ns != null )
+                                        ns.Send( MessageLocalized.InstantiateGeneric( number ) );
+                        }
+                        else
+                        {
+                                NetState ns = m_NetState;
 
-				if( ns != null )
-					ns.Send( new MessageLocalized( Serial.MinusOne, -1, MessageType.Regular, hue, 3, number, "System", args ) );
-			}
-		}
+                                if( ns != null )
+                                        ns.Send( new MessageLocalized( Serial.MinusOne, -1, MessageType.Regular, hue, 3, number, "System", TranslationService.Translate( args ) ) );
+                        }
+                }
 
 		public void SendLocalizedMessage( int number, bool append, string affix )
 		{
@@ -10971,9 +10971,9 @@ namespace Server
 		{
 			NetState ns = m_NetState;
 
-			if( ns != null )
-				ns.Send( new MessageLocalizedAffix( Serial.MinusOne, -1, MessageType.Regular, hue, 3, number, "System", (append ? AffixType.Append : AffixType.Prepend) | AffixType.System, affix, args ) );
-		}
+                        if( ns != null )
+                                ns.Send( new MessageLocalizedAffix( Serial.MinusOne, -1, MessageType.Regular, hue, 3, number, "System", (append ? AffixType.Append : AffixType.Prepend) | AffixType.System, TranslationService.Translate( affix ), TranslationService.Translate( args ) ) );
+                }
 
 		#endregion
 
@@ -10995,13 +10995,13 @@ namespace Server
 			SendMessage( 0x3B2, String.Format( format, args ) );
 		}
 
-		public void SendMessage( int hue, string text )
-		{
-			NetState ns = m_NetState;
+                public void SendMessage( int hue, string text )
+                {
+                        NetState ns = m_NetState;
 
-			if( ns != null )
-				ns.Send( new UnicodeMessage( Serial.MinusOne, -1, MessageType.Regular, hue, 3, "ENU", "System", text ) );
-		}
+                        if( ns != null )
+                                ns.Send( new UnicodeMessage( Serial.MinusOne, -1, MessageType.Regular, hue, 3, "ENU", "System", TranslationService.Translate( text ) ) );
+                }
 
 		public void SendMessage( int hue, string format, params object[] args )
 		{
@@ -11018,13 +11018,13 @@ namespace Server
 			SendAsciiMessage( 0x3B2, String.Format( format, args ) );
 		}
 
-		public void SendAsciiMessage( int hue, string text )
-		{
-			NetState ns = m_NetState;
+                public void SendAsciiMessage( int hue, string text )
+                {
+                        NetState ns = m_NetState;
 
-			if( ns != null )
-				ns.Send( new AsciiMessage( Serial.MinusOne, -1, MessageType.Regular, hue, 3, "System", text ) );
-		}
+                        if( ns != null )
+                                ns.Send( new AsciiMessage( Serial.MinusOne, -1, MessageType.Regular, hue, 3, "System", TranslationService.Translate( text ) ) );
+                }
 
 		public void SendAsciiMessage( int hue, string format, params object[] args )
 		{
