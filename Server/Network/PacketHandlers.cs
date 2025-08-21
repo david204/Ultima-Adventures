@@ -304,7 +304,7 @@ namespace Server.Network
 			{
 				if ( ph.Ingame && state.Mobile == null )
 				{
-					Console.WriteLine( "Client: {0}: Sent ingame packet (0xD7x{1:X2}) before having been attached to a mobile", state, packetID );
+									Console.WriteLine( "Client: {0}: Sent ingame packet (0xD7x{1:X2}) before having been attached to a mobile", state, packetID );
 					state.Dispose();
 				}
 				else if ( ph.Ingame && state.Mobile.Deleted )
@@ -1385,18 +1385,21 @@ namespace Server.Network
 			MessageType type = (MessageType)pvSrc.ReadByte();
 			int hue = pvSrc.ReadInt16();
 			pvSrc.ReadInt16(); // font
-                        string text = pvSrc.ReadStringSafe().Trim();
+			string text = pvSrc.ReadStringSafe().Trim();
 
-                        if ( text.Length <= 0 || text.Length > 128 )
-                                return;
+			if ( text.Length <= 0 || text.Length > 128 )
+				return;
 
-                        if ( !Enum.IsDefined( typeof( MessageType ), type ) )
-                                type = MessageType.Regular;
+			if ( !Enum.IsDefined( typeof( MessageType ), type ) )
+				type = MessageType.Regular;
 
-                        string displayText = text;
-                        string serverText = TranslationService.TranslateToServerLanguage( displayText );
+			string originalText = text;
+			string serverText = TranslationService.TranslateToServerLanguage( originalText );
 
-                        from.DoSpeech( serverText, m_EmptyInts, type, Utility.ClipDyedHue( hue ), displayText );
+			if ( Core.Debug && !String.Equals( originalText, serverText ) )
+				Console.WriteLine( "[Speech Debug] Original: {0}", originalText );
+
+			from.DoSpeech( serverText, m_EmptyInts, type, Utility.ClipDyedHue( hue ), serverText );
                 }
 
 		private static KeywordList m_KeywordList = new KeywordList();
@@ -1468,12 +1471,15 @@ namespace Server.Network
 			if ( !Enum.IsDefined( typeof( MessageType ), type ) )
 				type = MessageType.Regular;
 
-                        from.Language = lang;
+			from.Language = lang;
 
-                        string displayText = text;
-                        string serverText = TranslationService.TranslateToServerLanguage( displayText );
+			string originalText = text;
+			string serverText = TranslationService.TranslateToServerLanguage( originalText );
 
-                        from.DoSpeech( serverText, keywords, type, Utility.ClipDyedHue( hue ), displayText );
+			if ( Core.Debug && !String.Equals( originalText, serverText ) )
+				Console.WriteLine( "[Speech Debug] Original: {0}", originalText );
+
+			from.DoSpeech( serverText, keywords, type, Utility.ClipDyedHue( hue ), serverText );
                 }
 
 		public static void UseReq( NetState state, PacketReader pvSrc )
