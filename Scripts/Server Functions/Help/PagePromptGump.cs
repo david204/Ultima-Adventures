@@ -42,11 +42,11 @@ namespace Server.Engines.Help
 				TextRelay entry = info.GetTextEntry( 0 );
 				string text = ( entry == null ? "" : entry.Text.Trim() );
 
-				if ( text.Length == 0 )
-				{
-					m_From.SendMessage( 0x35, "You must enter a description." );
-					m_From.SendGump( new PagePromptGump( m_From, m_Type ) );
-				}
+                                if ( text.Length == 0 )
+                                {
+                                        m_From.SendMessage( 0x35, "Debes introducir una descripción." );
+                                        m_From.SendGump( new PagePromptGump( m_From, m_Type ) );
+                                }
 				else
 				{
 					m_From.SendLocalizedMessage( 501234, "", 0x35 ); /* The next available Counselor/Game Master will respond as soon as possible.

@@ -53,7 +53,7 @@ namespace Server.Engines.Help
 			Add( new GumpImageTiled( 0, 0, 410, 448, 0xA40 ) );
 			Add( new GumpAlphaRegion( 1, 1, 408, 446 ) );
 
-			Add( new GumpLabel( 180, 12, 2100, "Page Queue" ) );
+                        Add( new GumpLabel( 180, 12, 2100, "Cola de solicitudes" ) );
 
 			ArrayList list = PageQueue.List;
 
@@ -85,15 +85,15 @@ namespace Server.Engines.Help
 					if ( i >= 5 && (i % 5) == 0 )
 					{
 						Add( new GumpButton( 368, 12, 0xFA5, 0xFA7, 0, GumpButtonType.Page, (i / 5) + 1 ) );
-						Add( new GumpLabel( 298, 12, 2100, "Next Page" ) );
+                                                Add( new GumpLabel( 298, 12, 2100, "Página siguiente" ) );
 						Add( new GumpPage( (i / 5) + 1 ) );
 						Add( new GumpButton( 12, 12, 0xFAE, 0xFB0, 0, GumpButtonType.Page, (i / 5) ) );
-						Add( new GumpLabel( 48, 12, 2100, "Previous Page" ) );
+                                                Add( new GumpLabel( 48, 12, 2100, "Página anterior" ) );
 					}
 
 					string typeString = PageQueue.GetPageTypeName( e.Type );
 
-					string html = String.Format( "[{0}] {1} <basefont color=#{2:X6}>[<u>{3}</u>]</basefont>", typeString, e.Message, e.Handler == null ? 0xFF0000 : 0xFF, e.Handler == null ? "Unhandled" : "Handling" );
+                                        string html = String.Format( "[{0}] {1} <basefont color=#{2:X6}>[<u>{3}</u>]</basefont>", typeString, e.Message, e.Handler == null ? 0xFF0000 : 0xFF, e.Handler == null ? "Sin atender" : "Atendiendo" );
 
 					Add( new GumpHtml( 12, 44 + ((i % 5) * 80), 350, 70, html, true, true ) );
 					Add( new GumpButton( 370, 44 + ((i % 5) * 80) + 24, 0xFA5, 0xFA7, i + 1, GumpButtonType.Reply, 0 ) );
@@ -101,7 +101,7 @@ namespace Server.Engines.Help
 			}
 			else
 			{
-				Add( new GumpLabel( 12, 44, 2100, "The page queue is empty." ) );
+                                Add( new GumpLabel( 12, 44, 2100, "La cola de solicitudes está vacía." ) );
 			}
 		}
 
@@ -118,7 +118,7 @@ namespace Server.Engines.Help
 				else
 				{
 					state.Mobile.SendGump( new PageQueueGump() );
-					state.Mobile.SendMessage( "That page has been removed." );
+                                        state.Mobile.SendMessage( "Esa solicitud ha sido eliminada." );
 				}
 			}
 		}

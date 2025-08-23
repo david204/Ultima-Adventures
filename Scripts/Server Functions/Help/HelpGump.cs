@@ -405,67 +405,67 @@ namespace Server.Engines.Help
 					if ( DB.CharacterWepAbNames == 1 ){ setB = 4018; } else { setB = 3609; }
 					AddButton(310, 155+adjs, setB, setB, 51, GumpButtonType.Reply, 0);
 					AddButton(350, 155+adjs, 4011, 4011, 99, GumpButtonType.Reply, 0);
-					AddHtml( 390, 155+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Ability Names</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 155+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Nombres de habilidades</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					if ( DB.CharacterSheath == 1 ){ setB = 4018; } else { setB = 3609; }
 					AddButton(310, 190+adjs, setB, setB, 52, GumpButtonType.Reply, 0);
 					AddButton(350, 190+adjs, 4011, 4011, 100, GumpButtonType.Reply, 0);
-					AddHtml( 390, 190+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Auto Sheath</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 190+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Enfundado automático</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					if ( DB.ClassicPoisoning == 1 ){ setB = 4018; } else { setB = 3609; }
 					AddButton(310, 225+adjs, setB, setB, 64, GumpButtonType.Reply, 0);
 					AddButton(350, 225+adjs, 4011, 4011, 86, GumpButtonType.Reply, 0);
-					AddHtml( 390, 225+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Classic Poisoning</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 225+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Envenenamiento clásico</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					if ( DB.Hue == 2 ){ setB = 4018; } else { setB = 3609; }
 					AddButton(310, 260+adjs, setB, setB, 80, GumpButtonType.Reply, 0);
 					AddButton(350, 260+adjs, 4011, 4011, 97, GumpButtonType.Reply, 0);
-					AddHtml( 390, 260+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Container Fix</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 260+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Corrección de contenedores</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					if ( DB.Hue == 3 ){ setB = 4018; } else { setB = 3609; }
 					AddButton(310, 295+adjs, setB, setB, 81, GumpButtonType.Reply, 0);
 					AddButton(350, 295+adjs, 4011, 4011, 98, GumpButtonType.Reply, 0);
-					AddHtml( 390, 295+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Large Containers</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 295+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Contenedores grandes</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					AddButton(310, 330+adjs, 4005, 4005, 55, GumpButtonType.Reply, 0);
 					AddButton(350, 330+adjs, 4011, 4011, 85, GumpButtonType.Reply, 0);
-					AddHtml( 390, 330+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Loot Options</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 330+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Opciones de botín</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					AddButton(310, 365+adjs, 4005, 4005, 65, GumpButtonType.Reply, 0);
 					AddButton(350, 365+adjs, 4011, 4011, 83, GumpButtonType.Reply, 0);
-					AddHtml( 390, 365+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Music Playlist</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 365+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Lista de reproducción</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					if ( DB.CharMusical == "Forest" ){ setB = 4018; } else { setB = 3609; }
 					AddButton(310, 400+adjs, setB, setB, 53, GumpButtonType.Reply, 0);
 					AddButton(350, 400+adjs, 4011, 4011, 82, GumpButtonType.Reply, 0);
-					AddHtml( 390, 400+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Music Tone</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 400+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Tono musical</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					/*if ( ((PlayerMobile)from).WimpPlayer == false ){ setB = 4018; } else { */ setB = 3609; //}
 					AddButton(310, 435+adjs, setB, setB, 54, GumpButtonType.Reply, 0);
 					AddButton(350, 435+adjs, 4011, 4011, 84, GumpButtonType.Reply, 0);
-					AddHtml( 390, 435+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Private</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 435+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Privado</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					AddButton(310, 470+adjs, 4005, 4005, 56, GumpButtonType.Reply, 0);
 					AddButton(350, 470+adjs, 4011, 4011, 87, GumpButtonType.Reply, 0);
-					AddHtml( 390, 470+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Skill Title</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 470+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Título de habilidad</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
@@ -481,25 +481,25 @@ namespace Server.Engines.Help
 
 					AddButton(310, 540+adjs, 4005, 4005, 63, GumpButtonType.Reply, 0);
 					AddButton(350, 540+adjs, 4011, 4011, 88, GumpButtonType.Reply, 0);
-					AddHtml( 390, 540+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Reagent Bar - Alchemy</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 540+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Barra de reactivos - Alquimia</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					AddButton(310, 575+adjs, 4005, 4005, 60, GumpButtonType.Reply, 0);
 					AddButton(350, 575+adjs, 4011, 4011, 89, GumpButtonType.Reply, 0);
-					AddHtml( 390, 575+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Reagent Bar - Magery</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 575+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Barra de reactivos - Magia</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					AddButton(310, 610+adjs, 4005, 4005, 61, GumpButtonType.Reply, 0);
 					AddButton(350, 610+adjs, 4011, 4011, 90, GumpButtonType.Reply, 0);
-					AddHtml( 390, 610+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Reagent Bar - Necromancy</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 610+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Barra de reactivos - Nigromancia</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					AddButton(310, 645+adjs, 4005, 4005, 62, GumpButtonType.Reply, 0);
 					AddButton(350, 645+adjs, 4011, 4011, 91, GumpButtonType.Reply, 0);
-					AddHtml( 390, 645+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Reagent Bar - Close All</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 645+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Barra de reactivos - Cerrar todo</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 

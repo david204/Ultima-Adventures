@@ -26,12 +26,12 @@ namespace Server.Engines.Help
 		}
 
 		[Usage( "SpeechLog" )]
-		[Description( "Opens the speech log of a given target." )]
+                [Description( "Abre el registro de chat del objetivo indicado." )]
 		private static void SpeechLog_OnCommand( CommandEventArgs e )
 		{
 			Mobile from = e.Mobile;
 
-			from.SendMessage( "Target a player to view his speech log." );
+                        from.SendMessage( "Apunta a un jugador para ver su registro de chat." );
 			e.Mobile.Target = new SpeechLogTarget();
 		}
 
@@ -47,15 +47,15 @@ namespace Server.Engines.Help
 
 				if ( pm == null )
 				{
-					from.SendMessage( "Speech logs aren't supported on that target." );
+                                        from.SendMessage( "Los registros de chat no están disponibles para ese objetivo." );
 				}
 				else if ( from != targeted && from.AccessLevel <= pm.AccessLevel && from.AccessLevel != AccessLevel.Owner )
 				{
-					from.SendMessage( "You don't have the required access level to view {0} speech log.", pm.Female ? "her" : "his" );
+                                        from.SendMessage( "No tienes el nivel de acceso requerido para ver el registro de chat de {0}.", pm.Female ? "ella" : "él" );
 				}
 				else if ( pm.SpeechLog == null )
 				{
-					from.SendMessage( "{0} has no speech log.", pm.Female ? "She" : "He" );
+                                        from.SendMessage( "{0} no tiene registro de chat.", pm.Female ? "Ella" : "Él" );
 				}
 				else
 				{

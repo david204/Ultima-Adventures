@@ -94,17 +94,17 @@ namespace Server.Menus.Questions
 			AddImage(46, 286, 130);
 			AddImage(18, 281, 159);
 			AddImage(181, 26, 156);
-			AddHtml( 171, 21, 219, 22, @"<BODY><BASEFONT Color=#FBFBFB><BIG>STUCK IN THE WORLD</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                        AddHtml( 171, 21, 219, 22, @"<BODY><BASEFONT Color=#FBFBFB><BIG>ATASCADO EN EL MUNDO</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 			for ( int i = 0; i < entries.Length; i++ )
 			{
 				StuckMenuEntry entry = entries[i];
 
 				AddButton(86, 132, 4005, 4005, i + 1, GumpButtonType.Reply, 0);
-				AddHtml( 128, 132, 206, 55, @"<BODY><BASEFONT Color=#FCFF00><BIG>Take me to a safe place in " + myWorld + "</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                AddHtml( 128, 132, 206, 55, @"<BODY><BASEFONT Color=#FCFF00><BIG>Llévame a un lugar seguro en " + myWorld + "</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 			}
 
-			AddHtml( 128, 217, 206, 22, @"<BODY><BASEFONT Color=#FCFF00><BIG>Cancel</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                        AddHtml( 128, 217, 206, 22, @"<BODY><BASEFONT Color=#FCFF00><BIG>Cancelar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 			AddButton(86, 217, 4017, 4017, 0, GumpButtonType.Reply, 0);
 		}
 
@@ -135,7 +135,7 @@ namespace Server.Menus.Questions
 				if ( m_Mobile == m_Sender )
 				{
 					m_Mobile.SendSound( 0x4A ); 
-					m_Mobile.SendMessage( "You choose to remain where you are." );
+                                        m_Mobile.SendMessage( "Decides quedarte donde estás." );
 					m_Mobile.CloseGump( typeof(Server.Engines.Help.HelpGump) );
 					m_Mobile.SendGump( new Server.Engines.Help.HelpGump( m_Mobile, 1 ) );
 				}
@@ -149,7 +149,7 @@ namespace Server.Menus.Questions
 				string myWorld = Worlds.GetMyWorld( m_Mobile.Map, m_Mobile.Location, m_Mobile.X, m_Mobile.Y );
 
 				if ( m_Mobile.Map == Map.Trammel && m_Mobile.X > 147 && m_Mobile.X < 257 && m_Mobile.Y > 2245 && m_Mobile.Y < 2313 )
-					m_Mobile.SendMessage( "This doesn't work here." );
+                                        m_Mobile.SendMessage( "Esto no funciona aquí." );
 
 				if ( myWorld == "the Moon of Luna" ) { entries = m_LunaEntries; }
 				else if ( myWorld == "the Land of Ambrosia" ) { entries = m_AmbrosiaEntries; }
@@ -172,7 +172,7 @@ namespace Server.Menus.Questions
 		{
 			if ( m_MarkUse ) 
 			{
-				m_Mobile.SendLocalizedMessage( 1010589 ); // You will be teleported within the next two minutes.
+                                m_Mobile.SendMessage( "Serás teletransportado en los próximos dos minutos." );
 
 				new TeleportTimer( m_Mobile, entry, TimeSpan.FromSeconds( 10.0 + (Utility.RandomDouble() * 110.0) ), m_Map ).Start();
 
