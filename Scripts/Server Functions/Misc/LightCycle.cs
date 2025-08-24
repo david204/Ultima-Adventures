@@ -41,21 +41,21 @@ namespace Server
 			CommandSystem.Register( "GlobalLight", AccessLevel.GameMaster, new CommandEventHandler( Light_OnCommand ) );
 		}
 
-		[Usage( "GlobalLight <value>" )]
-		[Description( "Sets the current global light level." )]
-		private static void Light_OnCommand( CommandEventArgs e )
-		{
-			if ( e.Length >= 1 )
-			{
-				LevelOverride = e.GetInt32( 0 );
-				e.Mobile.SendMessage( "Global light level override has been changed to {0}.", m_LevelOverride );
-			}
-			else
-			{
-				LevelOverride = int.MinValue;
-				e.Mobile.SendMessage( "Global light level override has been cleared." );
-			}
-		}
+                [Usage( "GlobalLight <value>" )]
+                [Description( "Establece el nivel de luz global actual." )]
+                private static void Light_OnCommand( CommandEventArgs e )
+                {
+                        if ( e.Length >= 1 )
+                        {
+                                LevelOverride = e.GetInt32( 0 );
+                                e.Mobile.SendMessage( "La anulación del nivel de luz global se ha cambiado a {0}.", m_LevelOverride );
+                        }
+                        else
+                        {
+                                LevelOverride = int.MinValue;
+                                e.Mobile.SendMessage( "Se ha restablecido la anulación del nivel de luz global." );
+                        }
+                }
 
 		public static void OnLogin( LoginEventArgs args )
 		{
