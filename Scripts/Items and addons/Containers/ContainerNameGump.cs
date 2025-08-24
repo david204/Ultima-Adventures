@@ -10,7 +10,7 @@ namespace Server.Gumps
 {
     public class ContainerNameGump : Gump
     {
-        const string DEFAULT_NAME = "Type here...";
+        const string DEFAULT_NAME = "Escribe aquí...";
         private BaseContainer m_gate;
 
         public ContainerNameGump(Mobile from, BaseContainer gate) : base(100, 100)
@@ -28,7 +28,7 @@ namespace Server.Gumps
 			AddHtml(153, 170, 304, 113, @"The name will be overwritten!", (bool)true, (bool)false);
 
             AddBackground(221, 285, 171, 29, 3000);
-            AddLabel(153, 290, 0, @"New Name:");
+            AddLabel(153, 290, 0, @"Nuevo nombre:");
             AddTextEntry(224, 290, 163, 21, 0, 1, DEFAULT_NAME, 16); // 16 Character Limit
             AddButton(395, 290, 4023, 4024, 1, GumpButtonType.Reply, 0); // Okay
         }

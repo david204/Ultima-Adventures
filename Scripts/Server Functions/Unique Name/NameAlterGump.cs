@@ -9,7 +9,7 @@ namespace Server.Gumps
 {
     public class NameAlterGump : Gump
     {
-        const string DEFAULT_NAME = "Type here...";
+        const string DEFAULT_NAME = "Escribe aquí...";
         public NameAlterGump(Mobile from) : base(25, 25)
         {
             this.Closable=true;
@@ -58,23 +58,23 @@ namespace Server.Gumps
             {
                 if (!NameVerification.Validate(name, 2, 16, true, false, true, 1, NameVerification.SpaceOnly))
                 {
-                    from.SendMessage(0X22, "That name is unacceptable or already taken.");
+                    from.SendMessage(0X22, "Ese nombre no es aceptable o ya está en uso.");
                 }
                 else if ( CharacterCreation.CheckDupe(from, name) )
                 {
-                    from.SendMessage(0X22, "Your name is now {0}.", name);
+                    from.SendMessage(0X22, "Tu nombre ahora es {0}.", name);
                     from.Name = name;
                     from.CantWalk = false;
                     return;
                 }
                 else if ( CharacterCreation.CheckDupe(from, name) )
                 {
-                    from.SendMessage(0X22, "That name is unacceptable or already taken.");
+                    from.SendMessage(0X22, "Ese nombre no es aceptable o ya está en uso.");
                 }
             }
             else
             {
-                from.SendMessage(0X22, "You must enter a name.");
+                from.SendMessage(0X22, "Debes introducir un nombre.");
             }
 
             from.SendGump(new NameAlterGump(from));

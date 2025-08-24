@@ -9,7 +9,7 @@ namespace Server.Gumps
 {
     public class NameChangeGump : Gump
     {
-        const string DEFAULT_NAME = "Type here...";
+        const string DEFAULT_NAME = "Escribe aquí...";
         public NameChangeGump(Mobile from) : base(100, 100)
         {
             // Immobilize the player
@@ -24,9 +24,9 @@ namespace Server.Gumps
 
             AddBackground(137, 119, 334, 195, 9250);
             AddBackground(221, 264, 171, 29, 3000);
-            AddHtml(153, 135, 304, 113, @"The name you've chosen is currently in use and is no longer available. You must choose a different name before you're able to continue. So delete the text below and enter a new fantasy appropriate name.", (bool)true, (bool)false);
+            AddHtml(153, 135, 304, 113, @"El nombre que has elegido ya está en uso y no se encuentra disponible. Debes elegir otro nombre para continuar. Borra el texto de abajo e introduce un nuevo nombre de fantasía.", (bool)true, (bool)false);
 
-            AddLabel(153, 270, 0, @"New Name:");
+            AddLabel(153, 270, 0, @"Nuevo nombre:");
             AddTextEntry(224, 268, 163, 21, 0, 1, DEFAULT_NAME, 16); // 16 Character Limit
             AddButton(395, 267, 4023, 4024, 1, GumpButtonType.Reply, 0); // Okay
         }
@@ -51,13 +51,13 @@ namespace Server.Gumps
             {
                 if (!NameVerification.Validate(name, 2, 16, true, false, true, 1, NameVerification.SpaceOnly))
                 {
-                    from.SendMessage(0X22, "That name is unacceptable or already taken.");
+                    from.SendMessage(0X22, "Ese nombre no es aceptable o ya está en uso.");
                     from.SendGump(new NameChangeGump(from));
                     return;
                 }
                 if (CharacterCreation.CheckDupe(from, name))
                 {
-                    from.SendMessage(0X22, "Your name is now {0}.", name);
+                    from.SendMessage(0X22, "Tu nombre ahora es {0}.", name);
                     from.Name = name;
                     from.CantWalk = false;
                     return;
@@ -65,7 +65,7 @@ namespace Server.Gumps
             }
             else
             {
-                from.SendMessage(0X22, "You must enter a name.");
+                from.SendMessage(0X22, "Debes introducir un nombre.");
             }
 
             from.SendGump(new NameChangeGump(from));

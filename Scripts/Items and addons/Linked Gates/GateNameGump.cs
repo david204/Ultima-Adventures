@@ -11,7 +11,7 @@ namespace Server.Gumps
 {
     public class GateNameGump : Gump
     {
-        const string DEFAULT_NAME = "Type here...";
+        const string DEFAULT_NAME = "Escribe aquí...";
         private LinkedGate m_gate;
 
         public GateNameGump(Mobile from, LinkedGate gate) : base(100, 100)
@@ -28,7 +28,7 @@ namespace Server.Gumps
             AddHtml(153, 135, 304, 113, @"Enter a name for this gate below.", (bool)true, (bool)false);
             AddBackground(221, 264, 171, 29, 3000);
 
-            AddLabel(153, 270, 0, @"New Name:");
+            AddLabel(153, 270, 0, @"Nuevo nombre:");
             AddTextEntry(224, 268, 163, 21, 0, 1, DEFAULT_NAME, 16); // 16 Character Limit
             AddButton(395, 267, 4023, 4024, 1, GumpButtonType.Reply, 0); // Okay
         }

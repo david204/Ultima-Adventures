@@ -10,7 +10,7 @@ namespace Server.Gumps
 {
     public class SarcoNameGump : Gump
     {
-        const string DEFAULT_NAME = "Type here...";
+        const string DEFAULT_NAME = "Escribe aquí...";
         private Item m_gate;
 
         public SarcoNameGump(Mobile from, Item gate) : base(100, 100)
@@ -27,7 +27,7 @@ namespace Server.Gumps
             AddBackground(221, 264, 171, 29, 3000);
             AddHtml(153, 135, 304, 113, @"Enter a name for this sarcophagus below.", (bool)true, (bool)false);
 
-            AddLabel(153, 270, 0, @"New Name:");
+            AddLabel(153, 270, 0, @"Nuevo nombre:");
             AddTextEntry(224, 268, 163, 21, 0, 1, DEFAULT_NAME, 16); // 16 Character Limit
             AddButton(395, 267, 4023, 4024, 1, GumpButtonType.Reply, 0); // Okay
         }

@@ -49,7 +49,7 @@ namespace Server.Gumps
 {
     public class CensusGump : Gump
     {
-        const string DEFAULT_NAME = "Type here...";
+        const string DEFAULT_NAME = "Escribe aquí...";
         public CensusGump(Mobile from, bool legal) : base(25, 25)
         {
             this.Closable=true;
@@ -104,12 +104,12 @@ namespace Server.Gumps
             {
                 if (!NameVerification.Validate(name, 2, 16, true, false, true, 1, NameVerification.SpaceOnly))
                 {
-                    from.SendMessage(0X22, "That name is unacceptable or already taken.");
+                    from.SendMessage(0X22, "Ese nombre no es aceptable o ya está en uso.");
                     return;
                 }
                 else if ( CharacterCreation.CheckDupe(from, name) && pack.ConsumeTotal(typeof(Gold), 2000) )
                 {
-                    from.SendMessage(0X22, "Your name is now {0}.", name);
+                    from.SendMessage(0X22, "Tu nombre ahora es {0}.", name);
                     from.Name = name;
                     from.CantWalk = false;
                     return;
@@ -121,13 +121,13 @@ namespace Server.Gumps
                 }
                 else
                 {
-                    from.SendMessage(0X22, "That name is unacceptable or already taken.");
+                    from.SendMessage(0X22, "Ese nombre no es aceptable o ya está en uso.");
                     return;
                 }
             }
             else
             {
-                from.SendMessage(0X22, "You must enter a name.");
+                from.SendMessage(0X22, "Debes introducir un nombre.");
             }
         }
     }
