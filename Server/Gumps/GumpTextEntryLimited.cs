@@ -19,6 +19,7 @@
  ***************************************************************************/
 
 using System;
+using Server;
 using Server.Network;
 
 namespace Server.Gumps {
@@ -114,7 +115,7 @@ namespace Server.Gumps {
 		}
 
 		public override string Compile() {
-			return String.Format( "{{ textentrylimited {0} {1} {2} {3} {4} {5} {6} {7} }}", m_X, m_Y, m_Width, m_Height, m_Hue, m_EntryID, Parent.Intern( m_InitialText ), m_Size );
+                        return String.Format( "{{ textentrylimited {0} {1} {2} {3} {4} {5} {6} {7} }}", m_X, m_Y, m_Width, m_Height, m_Hue, m_EntryID, Parent.Intern( TranslationService.Translate( m_InitialText ) ), m_Size );
 		}
 
 		private static byte[] m_LayoutName = Gump.StringToBuffer( "textentrylimited" );
@@ -125,10 +126,10 @@ namespace Server.Gumps {
 			disp.AppendLayout( m_Y );
 			disp.AppendLayout( m_Width );
 			disp.AppendLayout( m_Height );
-			disp.AppendLayout( m_Hue );
-			disp.AppendLayout( m_EntryID );
-			disp.AppendLayout( Parent.Intern( m_InitialText ) );
-			disp.AppendLayout( m_Size );
+                        disp.AppendLayout( m_Hue );
+                        disp.AppendLayout( m_EntryID );
+                        disp.AppendLayout( Parent.Intern( TranslationService.Translate( m_InitialText ) ) );
+                        disp.AppendLayout( m_Size );
 
 			disp.TextEntries++;
 		}
