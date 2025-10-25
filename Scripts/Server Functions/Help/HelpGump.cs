@@ -21,7 +21,7 @@ namespace Server.Engines.Help
 	{
 		private Mobile m_From;
 
-		public ContainedMenu( Mobile from ) : base( "You already have an open help request. We will have someone assist you as soon as possible.  What would you like to do?", new string[]{ "Leave my old help request like it is.", "Remove my help request from the queue." } )
+		public ContainedMenu( Mobile from ) : base( "Ya tienes una solicitud de ayuda abierta. Tendremos a alguien que te asista lo antes posible. ¿Qué te gustaría hacer?", new string[]{ "Dejar mi solicitud de ayuda anterior como está.", "Quitar mi solicitud de ayuda de la cola." } )
 		{
 			m_From = from;
 		}
@@ -164,7 +164,7 @@ namespace Server.Engines.Help
 			int MainAdd = 32;
 			int MainSet = 181;
 
-			AddHtml( 181, 95, 618, 21, @"<BODY><BASEFONT Color=#FBFBFB><BIG>ULTIMA ODYSSEY - HELP OPTIONS</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+			AddHtml( 181, 95, 618, 21, @"<BODY><BASEFONT Color=#FBFBFB><BIG>ULTIMA ODYSSEY - OPCIONES DE AYUDA</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 			string colorMenu = "#FCFF00";
 
@@ -175,16 +175,16 @@ namespace Server.Engines.Help
 					colorMenu = "#FFA200";
 					AddHtml( 316, 177, 755, 536, @"<BODY><BASEFONT Color=#FCFF00><BIG>" + HelpText + "</BIG></BASEFONT></BODY>", (bool)false, (bool)true);
 				}
-				AddHtml( 141, 146, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Main</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+				AddHtml( 141, 146, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Principal</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 
 				int button_afk = 3609;
-				HelpText = "Your 'Away From Keyboard' Settings Are Disabled.";
+                               HelpText = "Tus ajustes de \"Ausente del teclado\" están desactivados.";
 				colorMenu = "#FCFF00";
 				if ( page == 2 )
 				{
 					colorMenu = "#FFA200";
-					if ( Server.Commands.AFK.m_AFK.Contains( from.Serial.Value ) ){ button_afk = 4018; HelpText = "Your 'Away From Keyboard' Settings Are Enabled."; }
+                                       if ( Server.Commands.AFK.m_AFK.Contains( from.Serial.Value ) ){ button_afk = 4018; HelpText = "Tus ajustes de \"Ausente del teclado\" están activados."; }
 					AddHtml( 316, 177, 755, 536, @"<BODY><BASEFONT Color=#FCFF00><BIG>" + HelpText + "</BIG></BASEFONT></BODY>", (bool)false, (bool)true);
 				}
 			AddButton(100, MainSet, button_afk, button_afk, 2, GumpButtonType.Reply, 0);
@@ -203,21 +203,21 @@ namespace Server.Engines.Help
 				if ( page == 4 )
 				{
 					colorMenu = "#FFA200";
-					AddHtml( 316, 177, 755, 536, @"<BODY><BASEFONT Color=#FCFF00><BIG>Your empty corpses have been removed.</BIG></BASEFONT></BODY>", (bool)false, (bool)true);
+					AddHtml( 316, 177, 755, 536, @"<BODY><BASEFONT Color=#FCFF00><BIG>Tus cadáveres vacíos han sido eliminados.</BIG></BASEFONT></BODY>", (bool)false, (bool)true);
 				}
-				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Corpse Clear</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Limpiar cadáveres</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 			MainSet += MainAdd;
 
 			AddButton(100, MainSet, 4005, 4005, 5, GumpButtonType.Reply, 0);
 				colorMenu = "#FCFF00"; if ( page == 5 ){ colorMenu = "#FFA200"; }
-				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Corpse Search</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Buscar cadáveres</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 			MainSet += MainAdd;
 
 			AddButton(100, MainSet, 4005, 4005, 6, GumpButtonType.Reply, 0);
 				colorMenu = "#FCFF00"; if ( page == 6 ){ colorMenu = "#FFA200"; }
-				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Emote</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Gestos</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 			MainSet += MainAdd;
 
@@ -229,145 +229,145 @@ namespace Server.Engines.Help
 
 					AddButton(310, 155, 4005, 4005, 66, GumpButtonType.Reply, 0);
 					AddButton(350, 155, 4011, 4011, 95, GumpButtonType.Reply, 0);
-					AddHtml( 390, 155, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Bard Songs Bar I</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+					AddHtml( 390, 155, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Barra de canciones de bardo I</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(635, 155, 4005, 4005, 266, GumpButtonType.Reply, 0);
-						AddHtml( 675, 155, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Open Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 675, 155, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Abrir barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(865, 155, 4017, 4017, 366, GumpButtonType.Reply, 0);
-						AddHtml( 905, 155, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Close Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 905, 155, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Cerrar barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					AddButton(310, 190, 4005, 4005, 67, GumpButtonType.Reply, 0);
 					AddButton(350, 190, 4011, 4011, 95, GumpButtonType.Reply, 0);
-					AddHtml( 390, 190, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Bard Songs Bar II</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+					AddHtml( 390, 190, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Barra de canciones de bardo II</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(635, 190, 4005, 4005, 267, GumpButtonType.Reply, 0);
-						AddHtml( 675, 190, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Open Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 675, 190, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Abrir barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(865, 190, 4017, 4017, 367, GumpButtonType.Reply, 0);
-						AddHtml( 905, 190, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Close Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 905, 190, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Cerrar barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					AddButton(310, 225, 4005, 4005, 68, GumpButtonType.Reply, 0);
 					AddButton(350, 225, 4011, 4011, 95, GumpButtonType.Reply, 0);
-					AddHtml( 390, 225, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Chivalry Spell Bar I</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+					AddHtml( 390, 225, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Barra de hechizos de caballería I</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(635, 225, 4005, 4005, 268, GumpButtonType.Reply, 0);
-						AddHtml( 675, 225, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Open Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 675, 225, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Abrir barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(865, 225, 4017, 4017, 368, GumpButtonType.Reply, 0);
-						AddHtml( 905, 225, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Close Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 905, 225, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Cerrar barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					AddButton(310, 260, 4005, 4005, 69, GumpButtonType.Reply, 0);
 					AddButton(350, 260, 4011, 4011, 95, GumpButtonType.Reply, 0);
-					AddHtml( 390, 260, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Chivalry Spell Bar II</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+					AddHtml( 390, 260, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Barra de hechizos de caballería II</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(635, 260, 4005, 4005, 269, GumpButtonType.Reply, 0);
-						AddHtml( 675, 260, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Open Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 675, 260, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Abrir barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(865, 260, 4017, 4017, 369, GumpButtonType.Reply, 0);
-						AddHtml( 905, 260, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Close Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 905, 260, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Cerrar barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					AddButton(310, 295, 4005, 4005, 70, GumpButtonType.Reply, 0);
 					AddButton(350, 295, 4011, 4011, 95, GumpButtonType.Reply, 0);
-					AddHtml( 390, 295, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Death Knight Spell Bar I</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+					AddHtml( 390, 295, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Barra de hechizos de caballero de la muerte I</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(635, 295, 4005, 4005, 270, GumpButtonType.Reply, 0);
-						AddHtml( 675, 295, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Open Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 675, 295, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Abrir barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(865, 295, 4017, 4017, 370, GumpButtonType.Reply, 0);
-						AddHtml( 905, 295, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Close Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 905, 295, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Cerrar barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					AddButton(310, 330, 4005, 4005, 71, GumpButtonType.Reply, 0);
 					AddButton(350, 330, 4011, 4011, 95, GumpButtonType.Reply, 0);
-					AddHtml( 390, 330, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Death Knight Spell Bar II</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+					AddHtml( 390, 330, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Barra de hechizos de caballero de la muerte II</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(635, 330, 4005, 4005, 271, GumpButtonType.Reply, 0);
-						AddHtml( 675, 330, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Open Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 675, 330, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Abrir barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(865, 330, 4017, 4017, 371, GumpButtonType.Reply, 0);
-						AddHtml( 905, 330, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Close Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 905, 330, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Cerrar barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					AddButton(310, 365, 4005, 4005, 72, GumpButtonType.Reply, 0);
 					AddButton(350, 365, 4011, 4011, 95, GumpButtonType.Reply, 0);
-					AddHtml( 390, 365, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Magery Spell Bar I</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+					AddHtml( 390, 365, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Barra de hechizos de magia I</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(635, 365, 4005, 4005, 272, GumpButtonType.Reply, 0);
-						AddHtml( 675, 365, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Open Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 675, 365, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Abrir barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(865, 365, 4017, 4017, 372, GumpButtonType.Reply, 0);
-						AddHtml( 905, 365, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Close Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 905, 365, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Cerrar barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					AddButton(310, 400, 4005, 4005, 73, GumpButtonType.Reply, 0);
 					AddButton(350, 400, 4011, 4011, 95, GumpButtonType.Reply, 0);
-					AddHtml( 390, 400, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Magery Spell Bar II</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+					AddHtml( 390, 400, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Barra de hechizos de magia II</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(635, 400, 4005, 4005, 273, GumpButtonType.Reply, 0);
-						AddHtml( 675, 400, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Open Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 675, 400, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Abrir barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(865, 400, 4017, 4017, 373, GumpButtonType.Reply, 0);
-						AddHtml( 905, 400, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Close Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 905, 400, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Cerrar barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					AddButton(310, 435, 4005, 4005, 74, GumpButtonType.Reply, 0);
 					AddButton(350, 435, 4011, 4011, 95, GumpButtonType.Reply, 0);
-					AddHtml( 390, 435, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Magery Spell Bar III</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+					AddHtml( 390, 435, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Barra de hechizos de magia III</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(635, 435, 4005, 4005, 274, GumpButtonType.Reply, 0);
-						AddHtml( 675, 435, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Open Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 675, 435, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Abrir barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(865, 435, 4017, 4017, 374, GumpButtonType.Reply, 0);
-						AddHtml( 905, 435, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Close Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 905, 435, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Cerrar barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					AddButton(310, 470, 4005, 4005, 75, GumpButtonType.Reply, 0);
 					AddButton(350, 470, 4011, 4011, 95, GumpButtonType.Reply, 0);
-					AddHtml( 390, 470, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Magery Spell Bar IV</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+					AddHtml( 390, 470, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Barra de hechizos de magia IV</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(635, 470, 4005, 4005, 275, GumpButtonType.Reply, 0);
-						AddHtml( 675, 470, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Open Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 675, 470, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Abrir barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(865, 470, 4017, 4017, 375, GumpButtonType.Reply, 0);
-						AddHtml( 905, 470, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Close Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 905, 470, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Cerrar barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					AddButton(310, 505, 4005, 4005, 980, GumpButtonType.Reply, 0);
 					AddButton(350, 505, 4011, 4011, 95, GumpButtonType.Reply, 0);
-					AddHtml( 390, 505, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Monk Ability Bar I</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+					AddHtml( 390, 505, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Barra de habilidades de monje I</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(635, 505, 4005, 4005, 280, GumpButtonType.Reply, 0);
-						AddHtml( 675, 505, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Open Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 675, 505, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Abrir barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(865, 505, 4017, 4017, 380, GumpButtonType.Reply, 0);
-						AddHtml( 905, 505, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Close Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 905, 505, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Cerrar barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					AddButton(310, 540, 4005, 4005, 981, GumpButtonType.Reply, 0);
 					AddButton(350, 540, 4011, 4011, 95, GumpButtonType.Reply, 0);
-					AddHtml( 390, 540, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Monk Ability Bar II</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+					AddHtml( 390, 540, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Barra de habilidades de monje II</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(635, 540, 4005, 4005, 281, GumpButtonType.Reply, 0);
-						AddHtml( 675, 540, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Open Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 675, 540, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Abrir barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(865, 540, 4017, 4017, 381, GumpButtonType.Reply, 0);
-						AddHtml( 905, 540, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Close Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 905, 540, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Cerrar barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					AddButton(310, 575, 4005, 4005, 76, GumpButtonType.Reply, 0);
 					AddButton(350, 575, 4011, 4011, 95, GumpButtonType.Reply, 0);
-					AddHtml( 390, 575, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Necromancer Spell Bar I</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+					AddHtml( 390, 575, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Barra de hechizos de nigromante I</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(635, 575, 4005, 4005, 276, GumpButtonType.Reply, 0);
-						AddHtml( 675, 575, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Open Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 675, 575, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Abrir barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(865, 575, 4017, 4017, 376, GumpButtonType.Reply, 0);
-						AddHtml( 905, 575, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Close Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 905, 575, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Cerrar barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					AddButton(310, 610, 4005, 4005, 77, GumpButtonType.Reply, 0);
 					AddButton(350, 610, 4011, 4011, 95, GumpButtonType.Reply, 0);
-					AddHtml( 390, 610, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Necromancer Spell Bar II</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+					AddHtml( 390, 610, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Barra de hechizos de nigromante II</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(635, 610, 4005, 4005, 277, GumpButtonType.Reply, 0);
-						AddHtml( 675, 610, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Open Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 675, 610, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Abrir barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(865, 610, 4017, 4017, 377, GumpButtonType.Reply, 0);
-						AddHtml( 905, 610, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Close Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 905, 610, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Cerrar barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					AddButton(310, 645, 4005, 4005, 78, GumpButtonType.Reply, 0);
 					AddButton(350, 645, 4011, 4011, 95, GumpButtonType.Reply, 0);
-					AddHtml( 390, 645, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Priest Prayers Bar I</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+					AddHtml( 390, 645, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Barra de plegarias de sacerdote I</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(635, 645, 4005, 4005, 278, GumpButtonType.Reply, 0);
-						AddHtml( 675, 645, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Open Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 675, 645, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Abrir barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(865, 645, 4017, 4017, 378, GumpButtonType.Reply, 0);
-						AddHtml( 905, 645, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Close Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 905, 645, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Cerrar barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					AddButton(310, 680, 4005, 4005, 79, GumpButtonType.Reply, 0);
 					AddButton(350, 680, 4011, 4011, 95, GumpButtonType.Reply, 0);
-					AddHtml( 390, 680, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Priest Prayers Bar II</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+					AddHtml( 390, 680, 300, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Barra de plegarias de sacerdote II</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(635, 680, 4005, 4005, 279, GumpButtonType.Reply, 0);
-						AddHtml( 675, 680, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Open Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 675, 680, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Abrir barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 						AddButton(865, 680, 4017, 4017, 379, GumpButtonType.Reply, 0);
-						AddHtml( 905, 680, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Close Toolbar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+						AddHtml( 905, 680, 110, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Cerrar barra de herramientas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 				}
-				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Magic Toolbars</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Barras de herramientas mágicas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 			MainSet += MainAdd;
 
 			AddButton(100, MainSet, 4005, 4005, 8, GumpButtonType.Reply, 0);
 				colorMenu = "#FCFF00"; if ( page == 8 ){ colorMenu = "#FFA200"; }
-				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Moongate Search</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Buscar portales lunares</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 			MainSet += MainAdd;
 
 			AddButton(100, MainSet, 4005, 4005, 9, GumpButtonType.Reply, 0);
 				colorMenu = "#FCFF00"; if ( page == 9 ){ colorMenu = "#FFA200"; }
-				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>MOTD</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Mensaje del día</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 			MainSet += MainAdd;
 
@@ -380,12 +380,12 @@ namespace Server.Engines.Help
 					AddHtml( 316, 158, 755, 377, @"<BODY><BASEFONT Color=#FCFF00><BIG>" + MyQuests( from ) + "</BIG></BASEFONT></BODY>", (bool)false, (bool)true);
 					AddHtml( 316, 556, 726, 217, @"<BODY><BASEFONT Color=#FFA200><BIG>Throughout your journey, you may come across particular events that appear in your quest log. They may be a simple achievement of finding a strange land, or they may reference an item you must find. Quests are handled in a 'virtual' manner. What this means is that any achievements are real, but any references to items found are not. If your quest log states that you found an ebony key, you will not have an ebony key in your backpack...but you will 'virtually' have the item. The quest will keep track of this fact for you. Because of this, you will never lose that ebony key and it remains unique to your character's questing. The quest knows you found it and have it. You may be tasked to find an item in a dungeon. When there is an indication you found it, it will be 'virtually' in your possession. You will often hear a sound of victory when a quest event is reached, along with a message about it. You still may miss it, however. So check your quest log from time to time. One way to get quests is to visit taverns or inns. If you see a bulletin board called 'Seeking Brave Adventurers', single click on it to begin your life questing for fame and fortune.</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 				}
-				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Quests</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Misiones</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 			MainSet += MainAdd;
 
 			AddButton(100, MainSet, 4005, 4005, 11, GumpButtonType.Reply, 0);
-				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Quick Bar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Barra rápida</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 			MainSet += MainAdd;
 
@@ -405,72 +405,72 @@ namespace Server.Engines.Help
 					if ( DB.CharacterWepAbNames == 1 ){ setB = 4018; } else { setB = 3609; }
 					AddButton(310, 155+adjs, setB, setB, 51, GumpButtonType.Reply, 0);
 					AddButton(350, 155+adjs, 4011, 4011, 99, GumpButtonType.Reply, 0);
-					AddHtml( 390, 155+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Ability Names</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 155+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Nombres de habilidades</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					if ( DB.CharacterSheath == 1 ){ setB = 4018; } else { setB = 3609; }
 					AddButton(310, 190+adjs, setB, setB, 52, GumpButtonType.Reply, 0);
 					AddButton(350, 190+adjs, 4011, 4011, 100, GumpButtonType.Reply, 0);
-					AddHtml( 390, 190+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Auto Sheath</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 190+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Enfundado automático</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					if ( DB.ClassicPoisoning == 1 ){ setB = 4018; } else { setB = 3609; }
 					AddButton(310, 225+adjs, setB, setB, 64, GumpButtonType.Reply, 0);
 					AddButton(350, 225+adjs, 4011, 4011, 86, GumpButtonType.Reply, 0);
-					AddHtml( 390, 225+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Classic Poisoning</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 225+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Envenenamiento clásico</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					if ( DB.Hue == 2 ){ setB = 4018; } else { setB = 3609; }
 					AddButton(310, 260+adjs, setB, setB, 80, GumpButtonType.Reply, 0);
 					AddButton(350, 260+adjs, 4011, 4011, 97, GumpButtonType.Reply, 0);
-					AddHtml( 390, 260+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Container Fix</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 260+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Corrección de contenedores</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					if ( DB.Hue == 3 ){ setB = 4018; } else { setB = 3609; }
 					AddButton(310, 295+adjs, setB, setB, 81, GumpButtonType.Reply, 0);
 					AddButton(350, 295+adjs, 4011, 4011, 98, GumpButtonType.Reply, 0);
-					AddHtml( 390, 295+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Large Containers</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 295+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Contenedores grandes</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					AddButton(310, 330+adjs, 4005, 4005, 55, GumpButtonType.Reply, 0);
 					AddButton(350, 330+adjs, 4011, 4011, 85, GumpButtonType.Reply, 0);
-					AddHtml( 390, 330+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Loot Options</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 330+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Opciones de botín</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					AddButton(310, 365+adjs, 4005, 4005, 65, GumpButtonType.Reply, 0);
 					AddButton(350, 365+adjs, 4011, 4011, 83, GumpButtonType.Reply, 0);
-					AddHtml( 390, 365+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Music Playlist</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 365+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Lista de reproducción</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					if ( DB.CharMusical == "Forest" ){ setB = 4018; } else { setB = 3609; }
 					AddButton(310, 400+adjs, setB, setB, 53, GumpButtonType.Reply, 0);
 					AddButton(350, 400+adjs, 4011, 4011, 82, GumpButtonType.Reply, 0);
-					AddHtml( 390, 400+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Music Tone</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 400+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Tono musical</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					/*if ( ((PlayerMobile)from).WimpPlayer == false ){ setB = 4018; } else { */ setB = 3609; //}
 					AddButton(310, 435+adjs, setB, setB, 54, GumpButtonType.Reply, 0);
 					AddButton(350, 435+adjs, 4011, 4011, 84, GumpButtonType.Reply, 0);
-					AddHtml( 390, 435+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Private</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 435+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Privado</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					AddButton(310, 470+adjs, 4005, 4005, 56, GumpButtonType.Reply, 0);
 					AddButton(350, 470+adjs, 4011, 4011, 87, GumpButtonType.Reply, 0);
-					AddHtml( 390, 470+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Skill Title</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 470+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Título de habilidad</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
-					string skillLocks = "Skill List (Show Up)"; 
-					if ( DB.SkillDisplay == 1 ){ setB = 4018; skillLocks = "Skill List (Show Up and Locked)"; } else { setB = 4017; }
+					string skillLocks = "Lista de habilidades (Mostrar)"; 
+					if ( DB.SkillDisplay == 1 ){ setB = 4018; skillLocks = "Lista de habilidades (Mostrar y bloqueadas)"; } else { setB = 4017; }
 					AddButton(310, 505+adjs, setB, setB, 982, GumpButtonType.Reply, 0);
 					AddButton(350, 505+adjs, 4011, 4011, 199, GumpButtonType.Reply, 0);
 					AddHtml( 390, 505+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>" + skillLocks + "</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
@@ -481,25 +481,25 @@ namespace Server.Engines.Help
 
 					AddButton(310, 540+adjs, 4005, 4005, 63, GumpButtonType.Reply, 0);
 					AddButton(350, 540+adjs, 4011, 4011, 88, GumpButtonType.Reply, 0);
-					AddHtml( 390, 540+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Reagent Bar - Alchemy</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 540+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Barra de reactivos - Alquimia</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					AddButton(310, 575+adjs, 4005, 4005, 60, GumpButtonType.Reply, 0);
 					AddButton(350, 575+adjs, 4011, 4011, 89, GumpButtonType.Reply, 0);
-					AddHtml( 390, 575+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Reagent Bar - Magery</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 575+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Barra de reactivos - Magia</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					AddButton(310, 610+adjs, 4005, 4005, 61, GumpButtonType.Reply, 0);
 					AddButton(350, 610+adjs, 4011, 4011, 90, GumpButtonType.Reply, 0);
-					AddHtml( 390, 610+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Reagent Bar - Necromancy</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 610+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Barra de reactivos - Nigromancia</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
 					AddButton(310, 645+adjs, 4005, 4005, 62, GumpButtonType.Reply, 0);
 					AddButton(350, 645+adjs, 4011, 4011, 91, GumpButtonType.Reply, 0);
-					AddHtml( 390, 645+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Reagent Bar - Close All</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+                                        AddHtml( 390, 645+adjs, 300, 21, @"<BODY><BASEFONT Color=#FFA200><BIG>Barra de reactivos - Cerrar todo</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 					adjs = adjs + adjm;
 
@@ -575,24 +575,24 @@ namespace Server.Engines.Help
 					AddButton(960, 855+adjs, setB, setB, 507, GumpButtonType.Reply, 0);
 					AddHtml( 1000, 855+adjs, 64, 20, @"<BODY><BASEFONT Color=#FFA200><BIG>Default</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 				}
-				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Settings</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Configuración</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 			MainSet += MainAdd;
 
 			AddButton(100, MainSet, 4005, 4005, 13, GumpButtonType.Reply, 0);
 				colorMenu = "#FCFF00"; if ( page == 13 ){ colorMenu = "#FFA200"; }
-				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Skills</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Habilidades</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 			MainSet += MainAdd;
 
 			AddButton(100, MainSet, 4005, 4005, 983, GumpButtonType.Reply, 0);
-				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Skill List</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Lista de habilidades</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 			MainSet += MainAdd;
 
 			AddButton(100, MainSet, 4005, 4005, 14, GumpButtonType.Reply, 0);
 				colorMenu = "#FCFF00"; if ( page == 14 ){ colorMenu = "#FFA200"; }
-				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Statistics</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Estadísticas</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 			MainSet += MainAdd;
 
@@ -604,19 +604,19 @@ namespace Server.Engines.Help
 			{
 				AddButton(100, MainSet, 4005, 4005, 15, GumpButtonType.Reply, 0);
 				colorMenu = "#FCFF00"; if ( page == 15 ){ colorMenu = "#FFA200"; }
-					AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Stuck in World</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+					AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Atascado en el mundo</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 			}
 
 			MainSet += MainAdd;
 
 			AddButton(100, MainSet, 4005, 4005, 17, GumpButtonType.Reply, 0);
-				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Wealth Bar</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=#FCFF00><BIG>Barra de riqueza</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 
 			MainSet += MainAdd;
 
 			AddButton(100, MainSet, 4005, 4005, 16, GumpButtonType.Reply, 0);
 				colorMenu = "#FCFF00"; if ( page == 16 ){ colorMenu = "#FFA200"; }
-				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Weapon Abilities</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
+				AddHtml( 141, MainSet, 150, 21, @"<BODY><BASEFONT Color=" + colorMenu + "><BIG>Habilidades de arma</BIG></BASEFONT></BODY>", (bool)false, (bool)false);
 		}
 
         public void InvokeCommand( string c, Mobile from )
@@ -687,7 +687,7 @@ namespace Server.Engines.Help
 						//from.SendLocalizedMessage( 501235, "", 0x35 ); // Help request aborted.
 						break;
 					}
-					case 1: // MAIN
+					case 1: // Principal
 					{
 						from.SendGump( new Server.Engines.Help.HelpGump( from, info.ButtonID ) );
 						break;
@@ -703,67 +703,67 @@ namespace Server.Engines.Help
 						InvokeCommand( "c", from );
 						break;
 					}
-					case 4: // Corpse Clear
+					case 4: // Limpiar cadáveres
 					{
 						InvokeCommand( "corpseclear", from );
 						from.SendGump( new Server.Engines.Help.HelpGump( from, info.ButtonID ) );
 						break;
 					}
-					case 5: // Corpse Search
+					case 5: // Buscar cadáveres
 					{
 						InvokeCommand( "corpse", from );
 						break;
 					}
-					case 6: // Emote
+					case 6: // Gestos
 					{
 						InvokeCommand( "emote", from );
 						break;
 					}
-					case 7: // Magic
+					case 7: // Barras de herramientas mágicas
 					{
 						from.SendGump( new Server.Engines.Help.HelpGump( from, 7 ) );
 						break;
 					}
-					case 8: // Moongate
+					case 8: // Buscar portales lunares
 					{
 						InvokeCommand( "magicgate", from );
 						break;
 					}
-					case 9: // MOTD
+					case 9: // Mensaje del día
 					{
 						from.CloseGump( typeof( Joeku.MOTD.MOTD_Gump ) );
 						Joeku.MOTD.MOTD_Utility.SendGump( from, false, 0, 1 );
 						break;
 					}
-					case 10: // Quests
+					case 10: // Misiones
 					{
 						from.SendGump( new Server.Engines.Help.HelpGump( from, info.ButtonID ) );
 						break;
 					}
-					case 11: // Quick Bar
+					case 11: // Barra rápida
 					{
 						from.CloseGump( typeof( QuickBar ) );
 						from.SendGump( new QuickBar( from ) );
 						break;
 					}
-					case 12: // Settings
+					case 12: // Configuración
 					{
 						from.SendGump( new Server.Engines.Help.HelpGump( from, 12 ) );
 						break;
 					}
-					case 13: // Skills
+					case 13: // Habilidades
 					{
 						from.CloseGump( typeof( NewSkillsGump ) );
 						from.SendGump( new NewSkillsGump( 1 ) );
 						break;
 					}
-					case 14: // Statistics
+					case 14: // Estadísticas
 					{
 						from.CloseGump( typeof( Server.Statistics.StatisticsGump ) );
 						from.SendGump( new Server.Statistics.StatisticsGump( 1 ) );
 						break;
 					}
-					case 15: // Stuck
+					case 15: // Atascado
 					{
 						BaseHouse house = BaseHouse.FindHouseAt( from );
 
@@ -790,12 +790,12 @@ namespace Server.Engines.Help
 
 						break;
 					}
-					case 16: // Weapon Abilities
+					case 16: // Habilidades de arma
 					{
 						InvokeCommand( "sad", from );
 						break;
 					}
-					case 17: // Wealth Bar
+					case 17: // Barra de riqueza
 					{
 						from.CloseGump( typeof( WealthBar ) );
 						from.SendGump( new WealthBar( from ) );
@@ -871,14 +871,14 @@ namespace Server.Engines.Help
 						from.SendGump( new SkillTitleGump( from ) );
 						break;
 					}
-					case 982: // Skill List
+					case 982: // Lista de habilidades
 					{
 						if ( DB.SkillDisplay > 0 ){ DB.SkillDisplay = 0; } else { DB.SkillDisplay = 1; }
 						from.SendGump( new Server.Engines.Help.HelpGump( from, 12 ) );
 						Server.Gumps.SkillListingGump.RefreshSkillList( from );
 						break;
 					}
-					case 983: // Open Skill List
+					case 983: // Abrir lista de habilidades
 					{
 						Server.Gumps.SkillListingGump.OpenSkillList( from );
 						break;
@@ -1598,7 +1598,7 @@ namespace Server.Gumps
 			}
 			else if ( page == 199 )
 			{
-				title = "Skill Lists";
+				title = "Listas de habilidades";
 				info = "Skill lists are an alternative to the normal skill lists you can get from clicking the appropriate button on the paper doll. Although you still need to use that for skill management (up, down, lock), skill lists have a more condensed appearance for when you play the game. In order for skills to appear in this alternate list, they have to either be set to 'up', or they can be set to 'locked'. The 'locked' skills will only display in this list if you change your settings here to reflect that. The list does not refresh in real time, but it will often refresh itself to show your skill status in both real and enhanced values. Any skill that appears in orange indicates a skill that you have locked. You can open this list with the '[skilllist' command, or the appropriate button on the main screen.";
 			}
 			else if ( page == 999 )
@@ -1616,17 +1616,17 @@ namespace Server.Gumps
 				info = info + "<br><br>-View Weapon Ability Toolbar";
 				info = info + "<br><br>-Change Song Command";
 				info = info + "<br><br>-AFK";
-				info = info + "<br><br>-View Quests";
+				info = info + "<br><br>-Ver misiones";
 				info = info + "<br><br>-Find Nearest Moongate";
 				info = info + "<br><br>-Chat Command";
-				info = info + "<br><br>-View Emote Toolbar";
+				info = info + "<br><br>-Ver barra de gestos";
 				info = info + "<br><br>-Find Your Corpse";
 				info = info + "<br><br>-View Magery Reagent Toolbar";
 				info = info + "<br><br>-View Necromancer Reagent Toolbar";
 				info = info + "<br><br>-View Alchemy Reagent Toolbar";
 				info = info + "<br><br>-Open Spell Toolbars";
 				info = info + "<br>    -Close Spell Toolbars";
-				info = info + "<br><br>-Close the Quick Bar";
+				info = info + "<br><br>-Cerrar la barra rápida";
 				info = info + "<br><br>Some items on the quick bar will not appear unless certain requirements are met. You won't see options for spell toolbars unless you have the appropriate spellbook and at least a skill level of 5 in the associated skill. You won't see bandage, arrow, or bolt counts or functions without having at least one of such items in your back pack. The reagent counter buttons won't appear unless you have some skill in magery, necromancy, or alchemy. This design's purpose is to keep the quick bar as condensed as possible and omit icons that your character will not be using. This bar will update itself from time to time, but selecting an option, or right clicking the bar, will update it as well.";
 			}
 			else if ( page == 1000 )
